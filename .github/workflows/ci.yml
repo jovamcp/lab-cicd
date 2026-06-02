@@ -8,7 +8,7 @@ jobs:
   pruebas:
     runs-on: ubuntu-latest
     steps:
-      - name: Traer el código
+      - name: Traer el codigo
         uses: actions/checkout@v4
 
       - name: Instalar Python
@@ -28,5 +28,5 @@ jobs:
       - name: Escaneo de dependencias (SCA)
         run: pip-audit
 
-     - name: Escaneo de codigo (SAST)
+      - name: Escaneo de codigo (SAST)
         run: bandit -r . --exclude ./test_calculadora.py
