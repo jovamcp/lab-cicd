@@ -21,3 +21,12 @@ jobs:
 
       - name: Correr las pruebas
         run: pytest
+
+      - name: Instalar herramientas de seguridad
+        run: pip install pip-audit bandit
+
+      - name: Escaneo de dependencias (SCA)
+        run: pip-audit
+
+      - name: Escaneo de codigo (SAST)
+        run: bandit -r .
