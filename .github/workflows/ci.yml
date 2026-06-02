@@ -30,3 +30,14 @@ jobs:
 
       - name: Escaneo de codigo (SAST)
         run: bandit -r . --exclude ./test_calculadora.py
+
+      - name: Empaquetar la aplicacion
+        run: |
+          mkdir -p entrega
+          cp calculadora.py requirements.txt entrega/
+
+      - name: Publicar el artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-calculadora
+          path: entrega/
